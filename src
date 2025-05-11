@@ -1,0 +1,120 @@
+fun main() {
+    println("=== Практическая работа №1: Остаток от деления ===")
+    remainderCheck()
+
+    println("\n=== Практическая работа №2: Простое условие ===")
+    ageCheck()
+
+    println("\n=== Практическая работа №3: Небольшой калькулятор ===")
+    simpleCalculator()
+
+    println("\n=== Практическая работа №4: Определение дня недели ===")
+    dayOfWeek()
+
+    println("\n=== Практическая работа №5: Среднее число ===")
+    middleNumber()
+
+    println("\n=== Практическая работа №6: Подсчет прибыли ===")
+    tradeBalance()
+
+    println("\n=== Практическая работа №7: Проверка переменных ===")
+    checkEvenNumbers()
+}
+
+// Практическая работа №1: Остаток от деления
+fun remainderCheck() {
+    val remainder = 20 % 17
+    if (remainder > 0) {
+        println("Получилось значение большее чем ноль!")
+    }
+}
+
+// Практическая работа №2: Простое условие
+fun ageCheck() {
+    print("Введите ваш возраст: ")
+    val age = readLine()?.toIntOrNull() ?: 0
+
+    when {
+        age > 18 -> println("Вам уже все можно")
+        age == 18 -> println("Ура, Вам 18 лет!")
+        else -> println("Вы еще слишком молоды")
+    }
+}
+
+// Практическая работа №3: Небольшой калькулятор
+fun simpleCalculator() {
+    val num1 = 2
+    val num2 = 6
+
+    println("У вас есть числа: $num1 и $num2")
+    println("1. Добавить")
+    println("2. Отнять")
+    println("0. Ничего")
+
+    print("Выберите действие: ")
+    when (readLine()?.toIntOrNull()) {
+        1 -> println("Результат: ${num1 + num2}")
+        2 -> println("Результат: ${num1 - num2}")
+        0 -> println("Вы ничего не выбрали.")
+        else -> println("Неверный выбор.")
+    }
+}
+
+// Практическая работа №4: Определение дня недели
+fun dayOfWeek() {
+    print("Введите число от 1 до 7: ")
+    val dayNumber = readLine()?.toIntOrNull()
+
+    val dayName = when (dayNumber) {
+        1 -> "Понедельник"
+        2 -> "Вторник"
+        3 -> "Среда"
+        4 -> "Четверг"
+        5 -> "Пятница"
+        6 -> "Суббота"
+        7 -> "Воскресенье"
+        else -> "Неверное число"
+    }
+
+    println(dayName)
+}
+
+// Практическая работа №5: Среднее число
+fun middleNumber() {
+    val num1 = 5
+    val num2 = 10
+    val num3 = 7
+
+    val middleNumber = when {
+        num1 == num2 && num2 == num3 -> "Ошибка"
+        (num1 in num2..num3 || num1 in num3..num2) -> num1
+        (num2 in num1..num3 || num2 in num3..num1) -> num2
+        else -> num3
+    }
+
+    println("Среднее число: $middleNumber")
+}
+
+// Практическая работа №6: Подсчет прибыли
+fun tradeBalance() {
+    val export = 240
+    val import = 345
+val balance = export - import
+
+    if (balance > 0) {
+        println("Ваша прибыль составила: $balance")
+    } else if (balance < 0) {
+        println("Ваши убытки составили: ${-balance}")
+    } else {
+        println("Баланс равен нулю.")
+    }
+}
+
+// Практическая работа №7: Проверка переменных
+fun checkEvenNumbers() {
+    val a = 3
+    val b = 8
+
+    val result = if (a % 2 == 0 && b % 2 == 0) true else false
+    println(result)
+}
